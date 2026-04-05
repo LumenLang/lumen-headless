@@ -1,43 +1,19 @@
-.gradle
-build/
-!gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
-.kotlin
+*
+!.gitignore
 
-### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-*.iws
-*.iml
-*.ipr
-out/
-!**/src/main/**/out/
-!**/src/test/**/out/
+!gradle/
+!gradle/**
 
-### Eclipse ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+!src/
+!src/**
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+!build.gradle
+!build.gradle.kts
+!settings.gradle
+!settings.gradle.kts
+!gradlew
+!gradlew.bat
+!gradle.properties
 
-### VS Code ###
-.vscode/
-
-### Mac OS ###
-.DS_Store
+!README.md
+!LICENSE
