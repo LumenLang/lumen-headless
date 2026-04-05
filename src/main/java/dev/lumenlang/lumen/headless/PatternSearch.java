@@ -291,16 +291,12 @@ public final class PatternSearch {
     private static @NotNull List<String> extractLiterals(@NotNull List<PatternPart> parts) {
         List<String> result = new ArrayList<>();
         for (PatternPart part : parts) {
-            switch (part) {
-                case PatternPart.Literal lit -> result.add(lit.text());
-                case PatternPart.FlexLiteral flex -> result.add(flex.forms().get(0));
-                case PatternPart.Group group -> {
-                    for (List<PatternPart> alt : group.alternatives()) {
-                        result.addAll(extractLiterals(alt));
-                    }
-                }
-                case PatternPart.PlaceholderPart ignored -> {
-                }
+            if (part instanceof PatternPart.Literal lit) {
+                result.add(lit.text());
+            } else if (part instanceof PatternPart.FlexLiteral flex) {
+                result.add(flex.forms().get(0));
+            } else if (part instanceof PatternPart.Group group) {
+                for (List<PatternPart> alt : group.alternatives()) result.addAll(extractLiterals(alt));
             }
         }
         return result;
@@ -312,15 +308,10 @@ public final class PatternSearch {
     private static @NotNull List<Placeholder> extractPlaceholders(@NotNull List<PatternPart> parts) {
         List<Placeholder> result = new ArrayList<>();
         for (PatternPart part : parts) {
-            switch (part) {
-                case PatternPart.PlaceholderPart pp -> result.add(pp.ph());
-                case PatternPart.Group group -> {
-                    for (List<PatternPart> alt : group.alternatives()) {
-                        result.addAll(extractPlaceholders(alt));
-                    }
-                }
-                default -> {
-                }
+            if (part instanceof PatternPart.PlaceholderPart pp) {
+                result.add(pp.ph());
+            } else if (part instanceof PatternPart.Group group) {
+                for (List<PatternPart> alt : group.alternatives()) result.addAll(extractPlaceholders(alt));
             }
         }
         return result;

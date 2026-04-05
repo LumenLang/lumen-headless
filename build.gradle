@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'dev.lumenlang'
-version = '1.0.0'
+version = '1.0.1'
 
 java {
     toolchain {
@@ -15,7 +15,6 @@ java {
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
     options.release.set(17)
-    options.compilerArgs.add('--enable-preview')
 }
 
 repositories {
