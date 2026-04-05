@@ -41,5 +41,5 @@ shadowJar {
 }
 
 build {
-    dependsOn shadowJar
+    dependsOn(tasks.shadowJar)
 }
