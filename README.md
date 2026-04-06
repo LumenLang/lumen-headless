@@ -6,7 +6,7 @@ Headless validation and tooling for **Lumen** scripts, without a running Minecra
 
 ## What It Is
 
-[Lumen](https://lumenlang.dev) is a high-performance scripting language for Minecraft servers that compiles scripts directly into native Java code. Normally, validating a script requires a live Bukkit/Paper server to load the plugin.
+[Lumen](https://lumenlang.dev) is a high-performance scripting platform for Minecraft servers that compiles scripts directly into native Java code. Normally, validating a script requires a live Bukkit/Paper server to load the plugin.
 
 LumenHeadless removes that requirement. It bootstraps the full Lumen registration system, including all registered patterns/type bindings/events in the actual plugin, and exposes them as a lightweight local process, without a Minecraft server running.
 
